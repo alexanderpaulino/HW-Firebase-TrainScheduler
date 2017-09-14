@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Train Scheduler</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron" style="background-color: #006666; color: white;">
+            <h1 class="text-center">Train Scheduler</h1>
+            <h4 class="text-center">Powered by Firebase</h4>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="background-color: #006666; color: white; font-weight: bold; font-size: 16px">
+                        <h3 class="panel-title"><strong>Train Schedule</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover" id='train-table'>
+                            <thead>
+                                <tr>
+                                    <th>Train Name</th>
+                                    <th>Destination</th>
+                                    <th>Frequency (min)</th>
+                                    <th>Next Arrival</th>
+                                    <th>Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="background-color: #006666; color: white; font-weight: bold; font-size: 16px">
+                        Add Train
+                    </div>
+                    <div class="panel-body">
+                        <form id="searchForm">
+                            <div class="form-group">
+                                <label for="trainInput">Train Name</label>
+                                <input type="trainNames" class="form-control" placeholder="Input train name here" id="trainInput" maxlength="20">
+                                <small class="form-text text-muted">E.g. "Hogwarts Express", "Thomas the Tank Engine".</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="destinationInput">Destination</label>
+                                <input type="destiantion" class="form-control" placeholder="Input destination here" id="destinationInput" maxlength="20">
+                            </div>
+                            <div class="form-group">
+                                <label for="trainTime">First Train Time(HHmm - Military Time)</label>
+                                <input type="text" class="form-control" id="timeInput" maxlength="4">
+                                <small class="form-text text-muted">E.g. "1030" = 10:30AM, "1520" = 3:20PM.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="trainFrequency">Frequency (min)</label>
+                                <input type="number" class="form-control" id="frequencyInput" min="1" max="9999">
+                            </div>
+                            <button type="submit" class="btn btn-default" id="addTrain" style="background-color: #006666; color: white; font-size: 14px">Submit</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="footer">
+            <div class="col-sm-12 text-center">
+                <h6><hr>&copy; 2017 - Alexander Paulino</h6>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/trainscheduler.js"></script>
+</body>
+
+</html>
